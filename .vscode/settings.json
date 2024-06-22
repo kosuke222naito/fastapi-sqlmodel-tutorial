@@ -1,0 +1,15 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.rulers": [99]
+  },
+  "python.analysis.typeCheckingMode": "strict",
+  "files.exclude": {
+    ".venv": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    ".*cache": true,
+    "*.lock": true
+  }
+}
