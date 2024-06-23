@@ -167,7 +167,7 @@ def read_teams(
     return teams
 
 
-@app.get("/teams/{team_id}", response_model=TeamPublic)
+@app.get("/teams/{team_id}", response_model=TeamPublicWithHeroes)
 def read_team(*, session: Session = Depends(get_session), team_id: int):
     team = session.get(Team, team_id)
     if not team:
@@ -226,7 +226,7 @@ def read_heroes(
     return heroes
 
 
-@app.get("/heroes/{hero_id}", response_model=HeroPublic)
+@app.get("/heroes/{hero_id}", response_model=HeroPublicWithTeam)
 def read_hero(*, session: Session = Depends(get_session), hero_id: int):
     hero = session.get(Hero, hero_id)
     if not hero:
