@@ -57,6 +57,14 @@ class HeroUpdate(SQLModel):
     team_id: int | None = None
 
 
+class HeroPublicWithTeam(HeroPublic):
+    team: TeamPublic | None = None
+
+
+class TeamPublicWithHeroes(TeamPublic):
+    heroes: list[HeroPublic] = []
+
+
 sqlite_file_name = "database.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
 
@@ -136,7 +144,7 @@ app = FastAPI()
 @app.on_event("startup")
 def on_startup():
     create_db_and_tables()
-    init_data()
+    # init_data()
 
 
 @app.post("/teams/", response_model=TeamPublic)
