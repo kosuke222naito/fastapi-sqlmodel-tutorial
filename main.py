@@ -82,7 +82,7 @@ def init_data():
     ]
 
     for hero in heroes:
-        created = create_hero(hero)
+        created = create_hero(hero=hero)
         print(created)
 
 
